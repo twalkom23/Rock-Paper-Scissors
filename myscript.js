@@ -2,17 +2,17 @@
 function getComputerChoice() {
     let compChoice = Math.floor(Math.random() * 3) + 1;
     if (compChoice === 1) {
-        return "Rock";
+        return "rock";
     }
     else if (compChoice === 2) {
-        return "Paper";
+        return "paper";
     }
     else {
-        return "Scissors";
+        return "scissors";
     }
 }
 
-let playerMove = "ROCK";
+
 
 
 //Creating the Play round function to compare the players moves and giving a winner.
@@ -49,9 +49,69 @@ function playRound(playerSelection, computerSelection) {
         return "Draw! You both selected Scissors!"
     }
     else {
-        return "Invalid Input";
+        return "Invalid Input, Please try only enter the correct words.";
     }  
 }
+
+//Creates the game using the above functions that runs through 5 times and keeps score, finally declaring a winner.
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let playerMove;
+
+    for (var i = 0; i < 5; i++) {
+    let userAnswer = prompt("Please enter rock, paper or scissors: ");
+    playerMove = userAnswer.toLowerCase();
+    let round = playRound(playerMove, getComputerChoice());
+    let firstLetter = round[0];
+    console.log(`Round ${i + 1} `);
+    if (firstLetter == "D"){
+    }
+    else if (firstLetter == "C") {
+        computerScore++;
+    }
+    else if (firstLetter == "P") {
+        playerScore++;
+    }
+    else {
+        i--;
+    }
+    
+    console.log(round);
+    console.log(`Player Score = ${playerScore}`);
+    console.log(`Computer Score = ${computerScore}`);    
+}
+if (playerScore > computerScore) {
+    console.log("User Wins!");
+   
+}
+else if (playerScore < computerScore) {
+    console.log("Computer Wins!");
+    
+}
+else {
+    console.log(`Draw!`)
+}
+console.log("Final Score");
+console.log(`User: ${playerScore}`);
+console.log(`Computer: ${computerScore}`);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
