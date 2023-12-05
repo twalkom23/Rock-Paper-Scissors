@@ -1,0 +1,26 @@
+.scoreboard {
+    display: flex;
+    gap: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-weight: bold;
+    font-size: x-large;
+    
+}
+
+body {
+    margin: 30px;
+}
+
+#playerTable {
+    display: flex;
+    flex-direction: column;
+}
+#computerTable {
+    display: flex;
+    flex-direction: column;
+}
+#winner {
+    display: flex;
+    flex-direction: column;
+}
