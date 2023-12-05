@@ -54,7 +54,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 let playerScore = 0;
-    let computerScore = 0;
+let computerScore = 0;
 
 //Creates the game using the above functions that runs through 5 times and keeps score, finally declaring a winner.
 function game(playerMove) {
@@ -79,11 +79,43 @@ function game(playerMove) {
 
     let roundDescription = document.createElement('p');
     roundDescription.textContent = round;
-    roundDescription.style.fontSize =
+    roundDescription.style.fontSize = 'small';
     log.appendChild(roundDescription);
+
+    let playerLog = document.createElement('p');
+    playerLog.textContent = (playerScore);
+    playerLog.style.fontSize = 'small';
+    playerLog.style.color = 'green';
+    playerTable.appendChild(playerLog);
+
+    let computerLog = document.createElement('p');
+    computerLog.textContent = (computerScore);
+    computerLog.style.fontSize = 'small';
+    computerLog.style.color = 'red';
+    computerTable.appendChild(computerLog);
+
+    if (playerScore === 3) {
+        log.textContent = 'Player Wins!';
+        playerTable.textContent = (playerScore);
+        computerTable.textContent = (computerScore);
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+        
+    }
+    if (computerScore === 3) {
+        log.textContent = 'Computer Wins!';
+        playerTable.textContent = (playerScore);
+        computerTable.textContent = (computerScore);
+        rock.remove();
+        paper.remove();
+        scissors.remove();
+        
+        
+    }
     
 }
-
+//Creates the function that allows the player to select an option
 function play() {
     const rock = document.querySelector('#rock');
     const paper = document.querySelector('#paper');
@@ -98,10 +130,7 @@ function play() {
     });
     scissors.addEventListener('click', () => {
         game('scissors');
-    })
-    
-
-    
+    })  
 }
 play();
 
